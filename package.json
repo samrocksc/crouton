@@ -1,0 +1,27 @@
+{
+  "name": "crouton",
+  "version": "0.0.1",
+  "description": "A Bread Library...opinionated.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf lib",
+    "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --recursive",
+    "test:watch": "npm test -- --watch",
+    "test:examples": "node examples/",
+    "cover": "cross-env BABEL_ENV=commonjs istanbul cover _mocha -- --compilers js:babel-register --recursive",
+    "lint": "eslint src test",
+    "build": "cross-env BABEL_ENV=commonjs babel src --out-dir ./",
+    "prepublish": "npm run clean && npm run lint && npm run test && npm run build",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samrocksc/crouton.git"
+  },
+  "author": "Sam Clark <samrocksc@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/samrocksc/crouton/issues"
+  },
+  "homepage": "https://github.com/samrocksc/crouton#readme"
+}
